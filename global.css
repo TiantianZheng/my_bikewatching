@@ -46,18 +46,60 @@ body {
     pointer-events: auto;
   }
  
+  header {
+    margin-bottom: 30px;  
+  }
   #time-control {
+    margin-top: 10px;
+    padding-bottom: 10px;  
     display: flex;
-    gap: 1em;
-    align-items: baseline;
-    margin-bottom: 10px;
-}
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+  
+  #time-control .time-row {
+    width: 80px;     
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+  }
+  
+  #selected-time {
+    display: inline-block;
+    min-width: 60px;  
+  }
+  
+  #any-time {
+    opacity: 0.6;
+  }
 
-#selected-time, #any-time {
-    display: block;
-}
-
-#any-time {
-    color: #777;
-    font-style: italic;
-}
+  #map circle,
+  .legend > div {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+    fill: var(--color);
+  }
+  
+  /* --- Legend styling --- */
+  .legend {
+    display: flex;
+    gap: 6px;
+    margin-block: 20px;
+    font-size: 14px;
+  }
+  
+  .legend > div {
+    flex: 1;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 4px;
+    background: var(--color); /* uses --departure-ratio */
+  }
