@@ -86,20 +86,42 @@ body {
     fill: var(--color);
   }
   
-  /* --- Legend styling --- */
   .legend {
+    margin-top: 20px;
     display: flex;
-    gap: 6px;
-    margin-block: 20px;
+    gap: 24px;   
+    align-items: center;
     font-size: 14px;
   }
   
-  .legend > div {
-    flex: 1;
-    padding: 10px 20px;
-    color: white;
+  .legend-title {
     font-weight: 600;
-    text-align: center;
+    margin-right: 12px;
+    color:#999;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;   
+  }
+  
+  .legend-swatch {
+    width: 18px;
+    height: 18px;
     border-radius: 4px;
-    background: var(--color); /* uses --departure-ratio */
+    border: 1px solid #999;
+  
+    background: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+  }
+  
+  /* 复用 circle 的颜色变量 */
+  .legend,
+  .legend * {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
   }
