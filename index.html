@@ -16,6 +16,12 @@
 <body>
     <h1>🚴🏼‍♀️ Bikewatching</h1>
     <p>This project will visualize cool map data.</p>  
+      <label id="time-control">
+        Filter by time:
+        <input id="time-slider" type="range" min="-1" max="1440" value="-1">
+        <time id="selected-time"></time>
+        <em id="any-time">(any time)</em>
+      </label>
     <div id="map">
         <svg></svg>
       </div>
